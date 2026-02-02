@@ -1,0 +1,63 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Modern gradient background -->
+    <path
+        android:fillColor="#1a1a2e"
+        android:pathData="M0,0 L108,0 L108,108 L0,108 Z"/>
+    
+    <!-- Diagonal gradient overlay -->
+    <path
+        android:fillColor="#16213e"
+        android:pathData="M0,0 L108,0 L108,54 L0,108 Z"/>
+    
+    <!-- Subtle grid pattern for tech aesthetic -->
+    <group android:alpha="0.08">
+        <!-- Vertical lines -->
+        <path
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="0.5"
+            android:pathData="M27,0 L27,108"/>
+        <path
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="0.5"
+            android:pathData="M54,0 L54,108"/>
+        <path
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="0.5"
+            android:pathData="M81,0 L81,108"/>
+        
+        <!-- Horizontal lines -->
+        <path
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="0.5"
+            android:pathData="M0,27 L108,27"/>
+        <path
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="0.5"
+            android:pathData="M0,54 L108,54"/>
+        <path
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="0.5"
+            android:pathData="M0,81 L108,81"/>
+    </group>
+    
+    <!-- Accent corner elements -->
+    <path
+        android:fillColor="#0f3460"
+        android:pathData="M0,0 L18,0 L0,18 Z"/>
+    
+    <path
+        android:fillColor="#0f3460"
+        android:pathData="M108,108 L90,108 L108,90 Z"/>
+    
+    <!-- Subtle glow effect in center -->
+    <path
+        android:fillColor="#16213e"
+        android:fillAlpha="0.4"
+        android:pathData="M54,54 m-30,0 a30,30 0,1,1 60,0 a30,30 0,1,1 -60,0"/>
+    
+</vector>

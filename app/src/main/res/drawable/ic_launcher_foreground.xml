@@ -1,0 +1,35 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+  <group android:scaleX="0.73880595"
+      android:scaleY="0.73880595"
+      android:translateX="8.563433"
+      android:translateY="14.104478">
+      
+      <!-- Modern "SP" monogram design -->
+      <!-- Centered in the safe zone (24dp margins) -->
+      
+      <!-- Letter S -->
+      <path
+          android:fillColor="#FFFFFF"
+          android:pathData="M42,38 Q32,38 32,46 Q32,50 36,52 L46,56 Q52,58 52,64 Q52,70 44,70 Q38,70 36,66 L30,70 Q34,78 44,78 Q54,78 58,72 Q60,68 60,64 Q60,56 54,52 L44,48 Q40,46 40,42 Q40,38 44,38 Q48,38 50,40 L54,36 Q50,30 42,30 Q34,30 30,36 Q28,40 28,44"/>
+      
+      <!-- Letter P -->
+      <path
+          android:fillColor="#FFFFFF"
+          android:pathData="M66,30 L66,78 L74,78 L74,58 L80,58 Q88,58 92,52 Q94,48 94,44 Q94,38 90,34 Q86,30 80,30 Z M74,38 L80,38 Q84,38 86,40 Q88,42 88,46 Q88,50 86,52 Q84,54 80,54 L74,54 Z"/>
+      
+      <!-- Subtle accent elements for tech aesthetic -->
+      <path
+          android:fillColor="#FFFFFF"
+          android:fillAlpha="0.3"
+          android:pathData="M30,82 L34,82 L34,86 L30,86 Z"/>
+      
+      <path
+          android:fillColor="#FFFFFF"
+          android:fillAlpha="0.3"
+          android:pathData="M90,22 L94,22 L94,26 L90,26 Z"/>
+  </group>
+</vector>
