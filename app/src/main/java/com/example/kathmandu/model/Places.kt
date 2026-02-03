@@ -1,15 +1,16 @@
 package com.example.kathmandu.model
 
-sealed class CityPlaces(
-    open val name : String,
-    open val description : String,
-){
-    data class Category(
-        override val name: String,
-        override val description: String,
-    ) : CityPlaces(name, description)
-    data class Building(
-        override val name:String,
-        override val description: String
-    ) : CityPlaces(name, description)
+import androidx.annotation.DrawableRes
+import java.util.UUID
+
+data class Recommendation(
+    val name: String,
+    val description: String,
+    val categoryOptions: CategoryOptions,
+    @DrawableRes val imageResourceId: Int,
+    val id: String = UUID.randomUUID().toString()
+)
+
+enum class CategoryOptions {
+    SPECIALS, TEMPLES, SHOPS, DESTINATIONS
 }
