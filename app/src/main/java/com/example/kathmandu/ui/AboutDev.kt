@@ -73,7 +73,7 @@ fun AboutDev() {
                 elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
             ) {
                 Image(
-                    painter = painterResource(R.drawable.budhanilkantha_bishnu_temple),
+                    painter = painterResource(R.drawable.developer_photo),
                     contentDescription = "Profile Photo",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.fillMaxSize()

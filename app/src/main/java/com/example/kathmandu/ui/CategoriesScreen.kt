@@ -103,9 +103,9 @@ private fun CategoryCard(
             .fillMaxWidth()
             .padding(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFF5F5F5)
+            containerColor = Color(0xFFE6E6E6)
         ),
-        shape = RoundedCornerShape(8.dp)
+        shape = RoundedCornerShape(20.dp)
     ){
         Row(
             modifier = Modifier
@@ -155,12 +155,13 @@ private fun SearchBar(
         modifier = modifier,
         placeholder = {
             Row(
-                Modifier.fillMaxWidth(),
+                Modifier.fillMaxWidth()
+                    .padding(1.dp),
                 horizontalArrangement = Arrangement.spacedBy(10.dp)
             ) {
                 Icon(
                     imageVector = Icons.Default.Search,
-                    contentDescription = "Search Icon"
+                    contentDescription = "Search Icon",
                 )
                 Text(
                     text = "Enter name place"
