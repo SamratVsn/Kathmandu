@@ -6,10 +6,10 @@ import com.example.kathmandu.model.Recommendation
 
 object DataSource {
     val defaultPlace: Recommendation = Recommendation(
-        name = "Singha Durbar",
-        description = "The historic seat of the Nepali government, originally built by Chandra Shumsher JBR as a private residence and once the largest palace in Asia.",
+        name = "Dharahara Tower",
+        description = "A 22-story landmark in Sundhara offering a panoramic view of the Kathmandu Valley; it is a symbol of resilience and history.",
         categoryOptions = CategoryOptions.SPECIALS,
-        imageResourceId = R.drawable.singha_durbar
+        imageResourceId = R.drawable.dharahara_tower
     )
 
     val allRecommendation = listOf(

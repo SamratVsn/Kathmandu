@@ -1,4 +1,24 @@
 <resources>
     <string name="app_name">Kathmandu</string>
     <string name="start_message">Start Exploring</string>
+    <string name="specials">Special Buildings</string>
+    <string name="specials_description">
+    Iconic and historically significant buildings across Kathmandu
+    </string>
+
+    <string name="temples">Temples</string>
+    <string name="temples_description">
+    Prominent Hindu and Buddhist temples, including Pashupatinath
+    </string>
+
+    <string name="shop">Major Shops</string>
+    <string name="shop_description">
+    Popular shopping streets, markets, and commercial areas
+    </string>
+
+    <string name="tourist">Tourist Destinations</string>
+    <string name="tourist_description">
+    Well-known attractions and places of interest for visitors
+    </string>
+
 </resources>
