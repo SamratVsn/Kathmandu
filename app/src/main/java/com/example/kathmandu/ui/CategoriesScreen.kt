@@ -138,7 +138,7 @@ fun CategoriesScreen(
             CategoryCard(
                 onCardClick = {
                     onCardClick()
-                    viewModel.updateCategory(categoryOptions = CategoryOptions.SHOPS)
+                    viewModel.updateCategory(categoryOptions = CategoryOptions.DESTINATIONS)
                 },
                 imageVector = Icons.AutoMirrored.Filled.List,
                 mainText = stringResource(R.string.tourist),

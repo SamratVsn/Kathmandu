@@ -3,33 +3,82 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-  <group android:scaleX="0.73880595"
-      android:scaleY="0.73880595"
-      android:translateX="8.563433"
-      android:translateY="14.104478">
+  <group android:scaleX="1.045"
+      android:scaleY="1.045"
+      android:translateX="-2.43"
+      android:translateY="-8.1775">
       
-      <!-- Modern "SP" monogram design -->
-      <!-- Centered in the safe zone (24dp margins) -->
-      
-      <!-- Letter S -->
-      <path
-          android:fillColor="#FFFFFF"
-          android:pathData="M42,38 Q32,38 32,46 Q32,50 36,52 L46,56 Q52,58 52,64 Q52,70 44,70 Q38,70 36,66 L30,70 Q34,78 44,78 Q54,78 58,72 Q60,68 60,64 Q60,56 54,52 L44,48 Q40,46 40,42 Q40,38 44,38 Q48,38 50,40 L54,36 Q50,30 42,30 Q34,30 30,36 Q28,40 28,44"/>
-      
-      <!-- Letter P -->
-      <path
-          android:fillColor="#FFFFFF"
-          android:pathData="M66,30 L66,78 L74,78 L74,58 L80,58 Q88,58 92,52 Q94,48 94,44 Q94,38 90,34 Q86,30 80,30 Z M74,38 L80,38 Q84,38 86,40 Q88,42 88,46 Q88,50 86,52 Q84,54 80,54 L74,54 Z"/>
-      
-      <!-- Subtle accent elements for tech aesthetic -->
-      <path
-          android:fillColor="#FFFFFF"
-          android:fillAlpha="0.3"
-          android:pathData="M30,82 L34,82 L34,86 L30,86 Z"/>
-      
-      <path
-          android:fillColor="#FFFFFF"
-          android:fillAlpha="0.3"
-          android:pathData="M90,22 L94,22 L94,26 L90,26 Z"/>
+      <!-- City skyline composition -->
+      <group
+          android:scaleX="0.8"
+          android:scaleY="0.8"
+          android:translateX="10.8"
+          android:translateY="15">
+          
+          <!-- Left - Modern skyscraper -->
+          <path
+              android:fillColor="#4A90E2"
+              android:pathData="M15,35 L35,35 L35,95 L15,95 Z" />
+          <!-- Windows -->
+          <path
+              android:fillColor="#E8F4F8"
+              android:pathData="M18,40 L22,40 L22,44 L18,44 Z M18,48 L22,48 L22,52 L18,52 Z M18,56 L22,56 L22,60 L18,60 Z M18,64 L22,64 L22,68 L18,68 Z M18,72 L22,72 L22,76 L18,76 Z M18,80 L22,80 L22,84 L18,84 Z" />
+          <path
+              android:fillColor="#E8F4F8"
+              android:pathData="M28,40 L32,40 L32,44 L28,44 Z M28,48 L32,48 L32,52 L28,52 Z M28,56 L32,56 L32,60 L28,60 Z M28,64 L32,64 L32,68 L28,68 Z M28,72 L32,72 L32,76 L28,76 Z M28,80 L32,80 L32,84 L28,84 Z" />
+          
+          <!-- Center-left - Office building -->
+          <path
+              android:fillColor="#34495E"
+              android:pathData="M38,50 L55,50 L55,95 L38,95 Z" />
+          <!-- Windows grid -->
+          <path
+              android:fillColor="#F39C12"
+              android:pathData="M41,55 L44,55 L44,58 L41,58 Z M41,62 L44,62 L44,65 L41,65 Z M41,69 L44,69 L44,72 L41,72 Z M41,76 L44,76 L44,79 L41,79 Z M41,83 L44,83 L44,86 L41,86 Z" />
+          <path
+              android:fillColor="#F39C12"
+              android:pathData="M49,55 L52,55 L52,58 L49,58 Z M49,62 L52,62 L52,65 L49,65 Z M49,69 L52,69 L52,72 L49,72 Z M49,76 L52,76 L52,79 L49,79 Z M49,83 L52,83 L52,86 L49,86 Z" />
+          
+          <!-- Center - Temple/Historical building -->
+          <path
+              android:fillColor="#8B4513"
+              android:pathData="M58,60 L75,60 L75,95 L58,95 Z" />
+          <!-- Pillars -->
+          <path
+              android:fillColor="#D2691E"
+              android:pathData="M60,65 L63,65 L63,95 L60,95 Z M70,65 L73,65 L73,95 L70,95 Z" />
+          <!-- Temple roof -->
+          <path
+              android:fillColor="#C0392B"
+              android:pathData="M66.5,48 L55,60 L78,60 Z" />
+          <path
+              android:fillColor="#E74C3C"
+              android:pathData="M66.5,50 L57,60 L76,60 Z" />
+          <!-- Roof ornament -->
+          <path
+              android:fillColor="#F1C40F"
+              android:pathData="M66.5,45 L64,48 L69,48 Z" />
+          
+          <!-- Right - Tall skyscraper -->
+          <path
+              android:fillColor="#2C3E50"
+              android:pathData="M78,25 L93,25 L93,95 L78,95 Z" />
+          <!-- Windows pattern -->
+          <path
+              android:fillColor="#3498DB"
+              android:pathData="M81,30 L84,30 L84,33 L81,33 Z M81,37 L84,37 L84,40 L81,40 Z M81,44 L84,44 L84,47 L81,47 Z M81,51 L84,51 L84,54 L81,54 Z M81,58 L84,58 L84,61 L81,61 Z M81,65 L84,65 L84,68 L81,68 Z M81,72 L84,72 L84,75 L81,75 Z M81,79 L84,79 L84,82 L81,82 Z M81,86 L84,86 L84,89 L81,89 Z" />
+          <path
+              android:fillColor="#3498DB"
+              android:pathData="M87,30 L90,30 L90,33 L87,33 Z M87,37 L90,37 L90,40 L87,40 Z M87,44 L90,44 L90,47 L87,47 Z M87,51 L90,51 L90,54 L87,54 Z M87,58 L90,58 L90,61 L87,61 Z M87,65 L90,65 L90,68 L87,68 Z M87,72 L90,72 L90,75 L87,75 Z M87,79 L90,79 L90,82 L87,82 Z M87,86 L90,86 L90,89 L87,89 Z" />
+          <!-- Antenna -->
+          <path
+              android:fillColor="#95A5A6"
+              android:pathData="M84,15 L87,15 L87,25 L84,25 Z M85.5,12 L84,15 L87,15 Z" />
+          
+          <!-- Ground/base -->
+          <path
+              android:fillColor="#7F8C8D"
+              android:pathData="M10,95 L98,95 L98,100 L10,100 Z" />
+      </group>
   </group>
 </vector>

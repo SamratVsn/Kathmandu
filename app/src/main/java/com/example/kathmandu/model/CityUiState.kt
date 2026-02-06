@@ -6,5 +6,4 @@ data class CityUiState(
     val recommendationList: Map<CategoryOptions, List<Recommendation>> = emptyMap(),
     var currentCategory: CategoryOptions = CategoryOptions.SPECIALS,
     var currentPlace: Recommendation = DataSource.defaultPlace,
-    val isShowingRecommendation: Boolean = true
 )
