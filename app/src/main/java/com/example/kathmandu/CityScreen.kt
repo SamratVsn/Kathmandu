@@ -1,6 +1,5 @@
 package com.example.kathmandu
 
-import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -19,7 +18,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -34,18 +32,19 @@ import com.example.kathmandu.ui.OptionsScreen
 import com.example.kathmandu.ui.PageDescription
 import com.example.kathmandu.ui.StartScreen
 
-enum class CityScreen(@StringRes val title: Int){
-    Start(title = R.string.app_name),
-    Info(title = R.string.about_dev),
-    Category(title = R.string.category),
-    Options(title = R.string.specials),
-    Description(title = R.string.selected)
+enum class CityScreen(var title: String?){
+    Start(title = "Kathmandu"),
+    Info(title = "About Dev"),
+    Category(title = "Select Category"),
+    Options(title = null),
+    Description(title = null)
 }
 
 @Composable
 fun CityApp(
     viewModel: CityViewModel = viewModel()
 ){
+    val uiState by viewModel.uiState.collectAsState()
     val navController = rememberNavController()
     val backStackEntry by navController.currentBackStackEntryAsState()
 
@@ -53,19 +52,23 @@ fun CityApp(
         backStackEntry?.destination?.route?: CityScreen.Start.name
     )
 
+    val topBarTitle = when (currentScreen) {
+        CityScreen.Options -> uiState.currentCategory.name
+        CityScreen.Description -> uiState.currentPlace.name
+        else -> currentScreen.title ?: ""
+    }
+
     Scaffold(
         topBar = {
             CityAppBar(
+                topBarTitle = topBarTitle,
                 showInfo = currentScreen.name == CityScreen.Start.name,
-                currentScreen = currentScreen,
                 canNavigate = navController.previousBackStackEntry != null,
                 navigateUp = { navController.navigateUp() },
                 navigateToInfo = { navController.navigate(CityScreen.Info.name) }
             )
         }
     ){ innerPadding ->
-        val uiState by viewModel.uiState.collectAsState()
-
         NavHost(
             navController = navController,
             startDestination = CityScreen.Start.name,
@@ -114,9 +117,9 @@ fun CityApp(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CityAppBar(
+    topBarTitle: String,
     navigateToInfo: () -> Unit,
     showInfo: Boolean,
-    currentScreen: CityScreen,
     canNavigate: Boolean,
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier
@@ -124,7 +127,7 @@ fun CityAppBar(
     TopAppBar(
         title = {
             Text(
-                text = stringResource(currentScreen.title),
+                text = topBarTitle,
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold
             )
