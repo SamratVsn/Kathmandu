@@ -1,6 +1,7 @@
 package com.example.kathmandu.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -42,14 +43,21 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.kathmandu.R
+import com.example.kathmandu.model.CategoryOptions
+import com.example.kathmandu.model.CityUiState
 import com.example.kathmandu.ui.theme.KathmanduTheme
 
 @Composable
 fun CategoriesScreen(
+    uiState: CityUiState,
     onCardClick: () -> Unit,
     onValueChangeSearchPlace: (String) -> Unit,
     modifier: Modifier = Modifier,
 ){
+    var clickedCategory: CategoryOptions = CategoryOptions.SPECIALS
+    fun updateCategory(clickedCategory: CategoryOptions){
+        uiState.currentCategory = clickedCategory
+    }
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top
@@ -62,25 +70,37 @@ fun CategoriesScreen(
         Spacer(modifier = Modifier.height(30.dp))
         Column() {
             CategoryCard(
-                onCardClick = onCardClick,
+                onCardClick = {
+                    onCardClick
+                    updateCategory(CategoryOptions.SPECIALS)
+                },
                 imageVector = Icons.Default.Build,
                 mainText = stringResource(R.string.specials),
                 description = stringResource(R.string.specials_description)
             )
             CategoryCard(
-                onCardClick = onCardClick,
+                onCardClick = {
+                    onCardClick
+                    updateCategory(CategoryOptions.TEMPLES)
+                },
                 imageVector = Icons.Filled.Place,
                 mainText = stringResource(R.string.temples),
                 description = stringResource(R.string.temples_description)
             )
             CategoryCard(
-                onCardClick = onCardClick,
+                onCardClick = {
+                    onCardClick
+                    updateCategory(CategoryOptions.SHOPS)
+                },
                 imageVector = Icons.Filled.ShoppingCart,
                 mainText = stringResource(R.string.shop),
                 description = stringResource(R.string.shop_description)
             )
             CategoryCard(
-                onCardClick = onCardClick,
+                onCardClick = {
+                    onCardClick
+                    updateCategory(CategoryOptions.DESTINATIONS)
+                },
                 imageVector = Icons.AutoMirrored.Filled.List,
                 mainText = stringResource(R.string.tourist),
                 description = stringResource(R.string.tourist_description)
@@ -95,7 +115,6 @@ private fun CategoryCard(
     imageVector: ImageVector,
     mainText: String,
     description: String,
-
 ){
     Card(
         onClick = onCardClick,
@@ -189,15 +208,4 @@ private fun SearchBar(
             }
         }
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun CategoryPreview(){
-    KathmanduTheme {
-        CategoriesScreen(
-            onCardClick = { },
-            onValueChangeSearchPlace = { }
-        )
-    }
 }

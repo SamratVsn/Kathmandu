@@ -4,7 +4,7 @@ import com.example.kathmandu.data.DataSource
 
 data class CityUiState(
     val recommendationList: Map<CategoryOptions, List<Recommendation>> = emptyMap(),
-    val currentCategory: CategoryOptions = CategoryOptions.SPECIALS,
+    var currentCategory: CategoryOptions = CategoryOptions.SPECIALS,
     val currentPlace: Recommendation = DataSource.defaultPlace,
     val isShowingRecommendation: Boolean = true
 )

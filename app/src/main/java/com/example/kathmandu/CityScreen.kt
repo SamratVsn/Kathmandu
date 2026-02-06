@@ -79,6 +79,7 @@ fun CityApp(
             }
             composable(route = CityScreen.Category.name) {
                 CategoriesScreen(
+                    uiState = uiState,
                     onCardClick = {
                         navController.navigate(CityScreen.Options.name)
                     },
