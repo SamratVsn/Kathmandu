@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Kathmandu</string>
+    <string name="category">Choose Category</string>
+    <string name="about_dev">About Developer</string>
     <string name="start_message">Start Exploring</string>
     <string name="specials">Special Buildings</string>
     <string name="specials_description">

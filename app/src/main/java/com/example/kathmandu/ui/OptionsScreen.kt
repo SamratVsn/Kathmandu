@@ -17,46 +17,43 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.kathmandu.R
-import com.example.kathmandu.ui.theme.KathmanduTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.kathmandu.data.DataSource
+import com.example.kathmandu.model.CityUiState
 
 @Composable
 fun OptionsScreen(
+    uiState: CityUiState,
     onButtonClicked: () -> Unit,
     modifier: Modifier = Modifier
 ){
-    Column(
+    val currentList = DataSource.allRecommendation.filter {
+        it.categoryOptions == uiState.currentCategory
+    }
+
+    LazyColumn(
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
         modifier = Modifier
             .fillMaxSize()
             .padding(horizontal = 20.dp)
-    ){
-        DetailCard(
-            onButtonClicked = onButtonClicked,
-            topic = "Singh Durbar",
-            imageId = R.drawable.singha_durbar
-        )
-        Spacer(modifier = Modifier.height(20.dp))
-        DetailCard(
-            onButtonClicked = onButtonClicked,
-            topic = "Dharahara",
-            imageId = R.drawable.dharahara_tower
-        )
-        Spacer(modifier = Modifier.height(20.dp))
-        DetailCard(
-            onButtonClicked = onButtonClicked,
-            topic = "Effiel Tower",
-            imageId = R.drawable.budhanilkantha_bishnu_temple
-        )
+    ) {
+        items(currentList){ recommendation ->
+            DetailCard(
+                topic = recommendation.name,
+                imageId = recommendation.imageResourceId,
+                onButtonClicked = onButtonClicked,
+            )
+        }
     }
 }
 
@@ -158,15 +155,5 @@ fun DetailCard(
                 }
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun OptionsComposable(){
-    KathmanduTheme {
-        OptionsScreen(
-            onButtonClicked = {  }
-        )
     }
 }

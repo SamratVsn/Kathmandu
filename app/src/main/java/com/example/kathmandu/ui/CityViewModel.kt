@@ -14,6 +14,11 @@ class CityViewModel : ViewModel() {
     val _uiState = MutableStateFlow(CityUiState())
     val uiState: StateFlow<CityUiState> =_uiState.asStateFlow()
 
+    val currentRecommendations: List<Recommendation>
+        get() = DataSource.allRecommendation.filter {
+            it.categoryOptions == _uiState.value.currentCategory
+        }
+
     init {
         initializeUiState()
     }
@@ -40,6 +45,5 @@ class CityViewModel : ViewModel() {
                 currentCategory = categoryOptions,
             )
         }
-
     }
 }
