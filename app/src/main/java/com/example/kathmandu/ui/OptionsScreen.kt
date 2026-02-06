@@ -8,56 +8,55 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material3.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.ui.unit.sp
 import com.example.kathmandu.data.DataSource
 import com.example.kathmandu.model.CityUiState
-import com.example.kathmandu.model.Recommendation
 
 @Composable
 fun OptionsScreen(
     viewModel: CityViewModel,
     uiState: CityUiState,
     onButtonClicked: () -> Unit,
-    modifier: Modifier = Modifier
 ){
     val currentList = DataSource.allRecommendation.filter {
         it.categoryOptions == uiState.currentCategory
     }
 
     LazyColumn(
-        contentPadding = PaddingValues(16.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(vertical = 20.dp, horizontal = 24.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = 20.dp)
+            .background(Color(0xFFF5F5F5))
     ) {
-        items(currentList){ recommendation ->
+        items(currentList) { recommendation ->
             DetailCard(
                 topic = recommendation.name,
                 imageId = recommendation.imageResourceId,
                 onButtonClicked = {
                     onButtonClicked()
                     viewModel.updateAndSelectDetailScreen(recommendation)
-                },
+                }
             )
         }
     }
@@ -67,7 +66,6 @@ fun OptionsScreen(
 fun DetailCard(
     topic: String,
     imageId: Int,
-    icon: ImageVector = Icons.Filled.LocationOn,
     onButtonClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -75,79 +73,80 @@ fun DetailCard(
         onClick = onButtonClicked,
         modifier = modifier
             .fillMaxWidth()
-            .height(200.dp),
+            .height(180.dp),
         elevation = CardDefaults.cardElevation(
-            defaultElevation = 6.dp,
-            pressedElevation = 2.dp
+            defaultElevation = 1.dp,
+            pressedElevation = 4.dp
         ),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant
+            containerColor = Color.White
         ),
-        shape = MaterialTheme.shapes.large
+        shape = RoundedCornerShape(16.dp)
     ) {
         Box(
             modifier = Modifier.fillMaxSize()
         ) {
-            // Background gradient for depth
-            Box(
+            Row(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(
-                        Brush.verticalGradient(
-                            colors = listOf(
-                                MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f),
-                                MaterialTheme.colorScheme.surfaceVariant
-                            )
-                        )
-                    )
-            )
-
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(20.dp),
-                verticalArrangement = Arrangement.SpaceBetween
+                    .padding(16.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                // Header with icon and title
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(12.dp),
-                    modifier = Modifier.fillMaxWidth()
+                // Left side - Text content
+                Column(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight(),
+                    verticalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Surface(
-                        shape = MaterialTheme.shapes.small,
-                        color = MaterialTheme.colorScheme.primary.copy(alpha = 0.15f),
-                        modifier = Modifier.size(40.dp)
-                    ) {
-                        Icon(
-                            imageVector = icon,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier
-                                .padding(8.dp)
-                                .size(24.dp)
+                    Column {
+                        Text(
+                            text = topic,
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF1A1A1A),
+                            lineHeight = 26.sp,
+                            maxLines = 2,
+                            overflow = TextOverflow.Ellipsis
+                        )
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Text(
+                            text = "Explore",
+                            fontSize = 13.sp,
+                            color = Color(0xFF2196F3),
+                            fontWeight = FontWeight.Medium
                         )
                     }
 
-                    Text(
-                        text = topic,
-                        style = MaterialTheme.typography.headlineSmall,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onSurface,
-                        modifier = Modifier.weight(1f)
-                    )
-
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                        contentDescription = "Navigate",
-                        tint = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier.size(24.dp)
-                    )
+                    // Arrow button at bottom
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = "View Details",
+                            fontSize = 12.sp,
+                            color = Color(0xFF666666),
+                            fontWeight = FontWeight.Medium
+                        )
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                            contentDescription = "Navigate",
+                            tint = Color(0xFF2196F3),
+                            modifier = Modifier.size(16.dp)
+                        )
+                    }
                 }
+
+                Spacer(modifier = Modifier.width(12.dp))
+
+                // Right side - Image
                 Box(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1f),
+                        .width(120.dp)
+                        .fillMaxHeight()
+                        .clip(RoundedCornerShape(12.dp))
+                        .background(Color(0xFFF0F0F0)),
                     contentAlignment = Alignment.Center
                 ) {
                     Image(
@@ -155,7 +154,7 @@ fun DetailCard(
                         contentDescription = "$topic image",
                         modifier = Modifier
                             .fillMaxSize()
-                            .padding(vertical = 8.dp),
+                            .padding(8.dp),
                         contentScale = ContentScale.Fit
                     )
                 }

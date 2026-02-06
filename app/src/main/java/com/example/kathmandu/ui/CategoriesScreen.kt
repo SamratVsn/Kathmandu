@@ -1,8 +1,8 @@
 package com.example.kathmandu.ui
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Place
@@ -39,32 +40,71 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.kathmandu.R
 import com.example.kathmandu.model.CategoryOptions
-import com.example.kathmandu.model.CityUiState
-import com.example.kathmandu.ui.theme.KathmanduTheme
 
 @Composable
 fun CategoriesScreen(
     viewModel: CityViewModel,
     onCardClick: () -> Unit,
     onValueChangeSearchPlace: (String) -> Unit,
-    modifier: Modifier = Modifier,
 ){
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.surface),
+        horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ){
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = "Explore Kathmandu",
+                style = MaterialTheme.typography.headlineMedium,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = "Discover hidden gems & cultural wonders",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center
+            )
+        }
+
+        Spacer(modifier = Modifier.height(24.dp))
+        //Search Bar
         SearchBar(
-            modifier = Modifier,
+            modifier = Modifier.padding(horizontal = 24.dp),
             onValueChangeSearchPlace = onValueChangeSearchPlace
         )
-        Spacer(modifier = Modifier.height(30.dp))
-        Column() {
+        Spacer(modifier = Modifier.height(32.dp))
+        //Categories
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp)
+        ) {
+            Text(
+                text = "Categories",
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.padding(horizontal = 8.dp, vertical = 8.dp),
+                color = MaterialTheme.colorScheme.onSurface
+            )
+
             CategoryCard(
                 onCardClick = {
                     onCardClick()
@@ -74,6 +114,7 @@ fun CategoriesScreen(
                 mainText = stringResource(R.string.specials),
                 description = stringResource(R.string.specials_description)
             )
+            Spacer(modifier = Modifier.height(12.dp))
             CategoryCard(
                 onCardClick = {
                     onCardClick()
@@ -83,6 +124,7 @@ fun CategoriesScreen(
                 mainText = stringResource(R.string.temples),
                 description = stringResource(R.string.temples_description)
             )
+            Spacer(modifier = Modifier.height(12.dp))
             CategoryCard(
                 onCardClick = {
                     onCardClick()
@@ -92,6 +134,7 @@ fun CategoriesScreen(
                 mainText = stringResource(R.string.shop),
                 description = stringResource(R.string.shop_description)
             )
+            Spacer(modifier = Modifier.height(12.dp))
             CategoryCard(
                 onCardClick = {
                     onCardClick()
@@ -116,44 +159,73 @@ private fun CategoryCard(
         onClick = onCardClick,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(horizontal = 24.dp, vertical = 6.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFE6E6E6)
+            containerColor = Color.White
         ),
-        shape = RoundedCornerShape(20.dp)
-    ){
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 1.dp,
+            pressedElevation = 4.dp
+        )
+    ) {
         Row(
             modifier = Modifier
+                .fillMaxWidth()
                 .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
-        ){
-            Icon(
-                imageVector = imageVector,
-                contentDescription = "Icons",
+        ) {
+            // Icon with circular background
+            Box(
                 modifier = Modifier
-                    .size(40.dp)
+                    .size(50.dp)
                     .background(
-                        color = Color(0xFF424242),
+                        color = Color(0xFFE3F2FD), // Light blue background
                         shape = CircleShape
-                    )
-                    .padding(8.dp),
-                tint = Color.White
-            )
-            Spacer(modifier = Modifier.width(16.dp))
-            Column(){
-                Text(
-                    text = mainText,
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = Color.Black
-                )
-                Spacer(modifier = Modifier.height(4.dp))
-                Text(
-                    text = description,
-                    fontSize = 14.sp,
-                    color = Color.Gray
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = imageVector,
+                    contentDescription = mainText,
+                    modifier = Modifier.size(24.dp),
+                    tint = Color(0xFF2196F3) // Blue tint
                 )
             }
+
+            Spacer(modifier = Modifier.width(16.dp))
+
+            // Text content
+            Column(
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(
+                    text = mainText,
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    color = Color(0xFF1A1A1A),
+                    lineHeight = 24.sp
+                )
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(
+                    text = description,
+                    fontSize = 13.sp,
+                    color = Color(0xFF666666),
+                    lineHeight = 18.sp,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
+
+            Spacer(modifier = Modifier.width(8.dp))
+
+            // Arrow icon
+            Icon(
+                imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                contentDescription = "Navigate to $mainText",
+                modifier = Modifier.size(20.dp),
+                tint = Color(0xFF999999)
+            )
         }
     }
 }

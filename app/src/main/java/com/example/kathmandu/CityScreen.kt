@@ -3,20 +3,25 @@ package com.example.kathmandu
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -117,24 +122,48 @@ fun CityAppBar(
     modifier: Modifier = Modifier
 ){
     TopAppBar(
-        title = { Text(stringResource(currentScreen.title)) },
+        title = {
+            Text(
+                text = stringResource(currentScreen.title),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold
+            )
+        },
         modifier = modifier,
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+            navigationIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+            actionIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+        ),
         navigationIcon = {
             if (canNavigate) {
-                IconButton(onClick = navigateUp) {
+                IconButton(
+                    onClick = navigateUp,
+                    modifier = Modifier
+                        .padding(4.dp)
+                        .size(40.dp)
+                ) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Navigate back"
+                        contentDescription = "Navigate back",
+                        modifier = Modifier.size(24.dp)
                     )
                 }
             }
         },
         actions = {
             if (showInfo) {
-                IconButton(onClick = navigateToInfo) {
+                IconButton(
+                    onClick = navigateToInfo,
+                    modifier = Modifier
+                        .padding(4.dp)
+                        .size(40.dp)
+                ) {
                     Icon(
                         imageVector = Icons.Filled.Info,
-                        contentDescription = "Info Page"
+                        contentDescription = "Info Page",
+                        modifier = Modifier.size(24.dp)
                     )
                 }
             }

@@ -2,19 +2,24 @@ package com.example.kathmandu.ui
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -43,66 +48,98 @@ private fun ItemCard(
     @DrawableRes imageId: Int,
     description : String,
 ){
-    Card(
+    Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp),
-        shape = RoundedCornerShape(12.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = Color.White
-        )
+            .fillMaxSize()
+            .background(Color(0xFFF5F5F5))
     ) {
-        Column(
+        // Hero Image Section
+        Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
-            horizontalAlignment = Alignment.Start
+                .height(280.dp)
         ) {
-            // Image with rounded corners
             Image(
                 painter = painterResource(imageId),
                 contentDescription = name,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp)
-                    .clip(RoundedCornerShape(8.dp)),
+                modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Monument name
-            Text(
-                text = name,
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.Black,
-                modifier = Modifier.fillMaxWidth()
+            // Gradient overlay for better text readability
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(
+                        Brush.verticalGradient(
+                            colors = listOf(
+                                Color.Transparent,
+                                Color.Black.copy(alpha = 0.3f)
+                            ),
+                            startY = 0f,
+                            endY = Float.POSITIVE_INFINITY
+                        )
+                    )
             )
+        }
 
-            Spacer(modifier = Modifier.height(12.dp))
+        // Content Card
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .offset(y = (-20).dp),
+            shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = Color.White
+            ),
+            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(24.dp)
+            ) {
+                // Title
+                Text(
+                    text = name,
+                    fontSize = 28.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFF1A1A1A),
+                    lineHeight = 34.sp
+                )
 
-            // Description header
-            Text(
-                text = "Description:",
-                fontSize = 16.sp,
-                fontWeight = FontWeight.SemiBold,
-                color = Color.Black,
-                modifier = Modifier.fillMaxWidth()
-            )
+                Spacer(modifier = Modifier.height(8.dp))
 
-            Spacer(modifier = Modifier.height(8.dp))
+                // Divider
+                HorizontalDivider(
+                    modifier = Modifier.width(40.dp),
+                    thickness = 3.dp,
+                    color = Color(0xFF2196F3)
+                )
 
-            Text(
-                text = description,
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Normal,
-                color = Color.DarkGray,
-                lineHeight = 20.sp,
-                textAlign = TextAlign.Justify,
-                modifier = Modifier.fillMaxWidth()
-            )
+                Spacer(modifier = Modifier.height(20.dp))
+
+                // Description label
+                Text(
+                    text = "About",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    color = Color(0xFF2196F3),
+                    letterSpacing = 0.5.sp
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                // Description text
+                Text(
+                    text = description,
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Normal,
+                    color = Color(0xFF4A4A4A),
+                    lineHeight = 24.sp,
+                    textAlign = TextAlign.Start
+                )
+            }
         }
     }
 }
