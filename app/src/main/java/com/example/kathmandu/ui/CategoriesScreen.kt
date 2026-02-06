@@ -49,15 +49,11 @@ import com.example.kathmandu.ui.theme.KathmanduTheme
 
 @Composable
 fun CategoriesScreen(
-    uiState: CityUiState,
+    viewModel: CityViewModel,
     onCardClick: () -> Unit,
     onValueChangeSearchPlace: (String) -> Unit,
     modifier: Modifier = Modifier,
 ){
-    var clickedCategory: CategoryOptions = CategoryOptions.SPECIALS
-    fun updateCategory(clickedCategory: CategoryOptions){
-        uiState.currentCategory = clickedCategory
-    }
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top
@@ -71,8 +67,8 @@ fun CategoriesScreen(
         Column() {
             CategoryCard(
                 onCardClick = {
-                    onCardClick
-                    updateCategory(CategoryOptions.SPECIALS)
+                    onCardClick()
+                    viewModel.updateCategory(categoryOptions = CategoryOptions.SPECIALS)
                 },
                 imageVector = Icons.Default.Build,
                 mainText = stringResource(R.string.specials),
@@ -80,8 +76,8 @@ fun CategoriesScreen(
             )
             CategoryCard(
                 onCardClick = {
-                    onCardClick
-                    updateCategory(CategoryOptions.TEMPLES)
+                    onCardClick()
+                    viewModel.updateCategory(categoryOptions = CategoryOptions.TEMPLES)
                 },
                 imageVector = Icons.Filled.Place,
                 mainText = stringResource(R.string.temples),
@@ -89,8 +85,8 @@ fun CategoriesScreen(
             )
             CategoryCard(
                 onCardClick = {
-                    onCardClick
-                    updateCategory(CategoryOptions.SHOPS)
+                    onCardClick()
+                    viewModel.updateCategory(categoryOptions = CategoryOptions.SHOPS)
                 },
                 imageVector = Icons.Filled.ShoppingCart,
                 mainText = stringResource(R.string.shop),
@@ -98,8 +94,8 @@ fun CategoriesScreen(
             )
             CategoryCard(
                 onCardClick = {
-                    onCardClick
-                    updateCategory(CategoryOptions.DESTINATIONS)
+                    onCardClick()
+                    viewModel.updateCategory(categoryOptions = CategoryOptions.SHOPS)
                 },
                 imageVector = Icons.AutoMirrored.Filled.List,
                 mainText = stringResource(R.string.tourist),

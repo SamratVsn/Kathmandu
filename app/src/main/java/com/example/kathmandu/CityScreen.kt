@@ -34,7 +34,7 @@ enum class CityScreen(@StringRes val title: Int){
     Info(title = R.string.about_dev),
     Category(title = R.string.category),
     Options(title = R.string.specials),
-    Description(title = R.string.shop)
+    Description(title = R.string.selected)
 }
 
 @Composable
@@ -79,7 +79,7 @@ fun CityApp(
             }
             composable(route = CityScreen.Category.name) {
                 CategoriesScreen(
-                    uiState = uiState,
+                    viewModel = viewModel,
                     onCardClick = {
                         navController.navigate(CityScreen.Options.name)
                     },
@@ -90,6 +90,7 @@ fun CityApp(
             }
             composable(route = CityScreen.Options.name) {
                 OptionsScreen(
+                    viewModel = viewModel,
                     uiState = uiState,
                     onButtonClicked = {
                         navController.navigate(CityScreen.Description.name)

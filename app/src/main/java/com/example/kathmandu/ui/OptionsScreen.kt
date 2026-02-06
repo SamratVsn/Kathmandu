@@ -27,11 +27,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.kathmandu.data.DataSource
 import com.example.kathmandu.model.CityUiState
+import com.example.kathmandu.model.Recommendation
 
 @Composable
 fun OptionsScreen(
+    viewModel: CityViewModel,
     uiState: CityUiState,
     onButtonClicked: () -> Unit,
     modifier: Modifier = Modifier
@@ -51,7 +54,10 @@ fun OptionsScreen(
             DetailCard(
                 topic = recommendation.name,
                 imageId = recommendation.imageResourceId,
-                onButtonClicked = onButtonClicked,
+                onButtonClicked = {
+                    onButtonClicked()
+                    viewModel.updateAndSelectDetailScreen(recommendation)
+                },
             )
         }
     }
