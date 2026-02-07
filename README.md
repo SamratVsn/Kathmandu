@@ -1,36 +1,40 @@
 # Kathmandu My-City App 🏛️🕉️🛍️
 
+![Kotlin](https://img.shields.io/badge/kotlin-1.9.0-blue.svg?logo=kotlin&logoColor=white) ![Compose](https://img.shields.io/badge/Jetpack%20Compose-M3-green.svg?logo=android) ![API](https://img.shields.io/badge/API-24%2B-brightgreen.svg?logo=android)
+
 A modern Android application showcasing the best of Kathmandu through curated local recommendations. Built with Jetpack Compose as the final project for Unit 4 of the Android Basics with Compose course.
 
 ## 📱 About
 
 Kathmandu My-City is a recommendation app that helps users discover the cultural richness and iconic destinations of Kathmandu, Nepal. The app features an intuitive, category-based interface highlighting must-visit locations across special places, temples, shopping areas, and tourist destinations.
 
-## ✨ Features
-
-- **Categorized Recommendations**
-  - 🏛️ **Special Places**: Iconic and historically significant buildings across Kathmandu
-  - 🕉️ **Temples**: Prominent Hindu and Buddhist temples, including Pashupatinath
-  - 🛍️ **Major Shops**: Popular shopping streets, markets, and commercial areas
-  - 🗺️ **Tourist Destinations**: Well-known attractions and places of interest for visitors
-
-- **Adaptive UI Design**
-  - Responsive layouts optimized for different screen sizes
-  - Navigation bars for mobile devices
-  - Permanent navigation drawers for tablets and larger screens
-  - Dynamic top app bar
-
-- **Seamless Navigation**
-  - Smooth transitions between categories and location details
-  - State preservation across configuration changes (e.g., screen rotation)
+## ✨ Key Features
+* **Categorized Recommendations:** Browse through Special Places 🏛️, Temples 🕉️, Shops 🛍️, and Tourist Destinations 🗺️.
+* **Adaptive UI/UX:**
+    * **Mobile:** Bottom navigation and list views.
+    * **Tablet/Desktop:** Permanent navigation rail and detail-pane layouts.
+* **Dynamic Theming:** Custom Material 3 color scheme reflecting Kathmandu's aesthetics.
+* **State Preservation:** Seamless user experience across screen rotations and navigation events.
 
 ## 🛠️ Technical Stack
+* **Language:** [Kotlin](https://kotlinlang.org/)
+* **UI Framework:** [Jetpack Compose](https://developer.android.com/jetbrains/compose) (Material Design 3)
+* **Architecture:** MVVM (Model-View-ViewModel)
+* **Navigation:** Jetpack Navigation Compose
+* **State Management:** ViewModel & StateFlow
 
-- **Language**: Kotlin
-- **UI Framework**: Jetpack Compose (Declarative UI)
-- **Architecture**: MVVM (Model-View-ViewModel)
-- **Navigation**: Jetpack Navigation Compose
-- **Design System**: Material Design 3
+## 📂 Project Structure
+
+```text
+com.example.kathmandu
+├── data                # Local data provider (DataSource)
+├── model               # Data models and UI State (Places.kt, CityUiState)
+├── ui                  # UI Layer
+│   ├── theme           # Material 3 design system configuration
+│   ├── CityViewModel   # Business logic and state management
+│   ├── CityScreen.kt   # Root Composable and navigation entry point
+│   └── [Screens]       # Feature-specific Composables (Start, Categories, Options)
+└── MainActivity.kt     # App entry point
 
 ## 🎨 Design Highlights
 
@@ -45,6 +49,8 @@ This project demonstrates proficiency in modern Android development practices:
 - **Navigation & State Management**: Utilizes Compose Navigation component with ViewModel and UI State for robust state management
 - **Material 3 Components**: Full implementation of M3 design guidelines for a polished, contemporary look
 - **Adaptive Layouts**: Responsive UI components that adjust to different screen sizes and orientations
+
+
 
 ## 📚 Course Reference
 
@@ -69,6 +75,8 @@ This project is part of an educational course and follows the Android Basics wit
 
 **Samrat Vsn**
 - GitHub: [@SamratVsn](https://github.com/SamratVsn)
+- LinkedIn: [@SamratVsn](https://linkedin.com/in/samratvsn)
+- Instagram: [@SamratVsn](https://www.instagram.com/samratvsn/)
 
 ---
 
