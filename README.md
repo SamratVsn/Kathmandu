@@ -8,13 +8,25 @@ A modern Android application showcasing the best of Kathmandu through curated lo
 
 Kathmandu My-City is a recommendation app that helps users discover the cultural richness and iconic destinations of Kathmandu, Nepal. The app features an intuitive, category-based interface highlighting must-visit locations across special places, temples, shopping areas, and tourist destinations.
 
-## ✨ Key Features
-* **Categorized Recommendations:** Browse through Special Places 🏛️, Temples 🕉️, Shops 🛍️, and Tourist Destinations 🗺️.
-* **Adaptive UI/UX:**
-    * **Mobile:** Bottom navigation and list views.
-    * **Tablet/Desktop:** Permanent navigation rail and detail-pane layouts.
-* **Dynamic Theming:** Custom Material 3 color scheme reflecting Kathmandu's aesthetics.
-* **State Preservation:** Seamless user experience across screen rotations and navigation events.
+## ✨ Features
+
+
+
+- **Categorized Recommendations**
+
+- 🏛️ **Special Places**: Iconic and historically significant buildings across Kathmandu
+
+- 🕉️ **Temples**: Prominent Hindu and Buddhist temples, including Pashupatinath
+
+- 🛍️ **Major Shops**: Popular shopping streets, markets, and commercial areas
+
+- 🗺️ **Tourist Destinations**: Well-known attractions and places of interest for visitors
+
+- **Seamless Navigation**
+
+- Smooth transitions between categories and location details
+
+- State preservation across configuration changes (e.g., screen rotation)
 
 ## 🛠️ Technical Stack
 * **Language:** [Kotlin](https://kotlinlang.org/)
