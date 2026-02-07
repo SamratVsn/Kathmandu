@@ -1,17 +1,18 @@
-# Kathmandu My-City App 🏛️☕🍽️
+# Kathmandu My-City App 🏛️🕉️🛍️
 
 A modern Android application showcasing the best of Kathmandu through curated local recommendations. Built with Jetpack Compose as the final project for Unit 4 of the Android Basics with Compose course.
 
 ## 📱 About
 
-Kathmandu My-City is a recommendation app that helps users discover the cultural richness and culinary delights of Kathmandu, Nepal. The app features an intuitive, category-based interface highlighting local favorites across coffee shops, landmarks, and restaurants.
+Kathmandu My-City is a recommendation app that helps users discover the cultural richness and iconic destinations of Kathmandu, Nepal. The app features an intuitive, category-based interface highlighting must-visit locations across special places, temples, shopping areas, and tourist destinations.
 
 ## ✨ Features
 
 - **Categorized Recommendations**
-  - ☕ **Coffee Shops**: Discover local favorites for your caffeine fix
-  - 🏛️ **Landmarks**: Explore iconic cultural and historical sites
-  - 🍽️ **Restaurants**: Browse curated must-visit dining spots
+  - 🏛️ **Special Places**: Iconic and historically significant buildings across Kathmandu
+  - 🕉️ **Temples**: Prominent Hindu and Buddhist temples, including Pashupatinath
+  - 🛍️ **Major Shops**: Popular shopping streets, markets, and commercial areas
+  - 🗺️ **Tourist Destinations**: Well-known attractions and places of interest for visitors
 
 - **Adaptive UI Design**
   - Responsive layouts optimized for different screen sizes
