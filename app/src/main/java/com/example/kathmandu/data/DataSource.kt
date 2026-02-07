@@ -132,6 +132,43 @@ object DataSource {
             tags = listOf("Vishnu", "Ancient Art", "Floating Statue")
         ),
         Recommendation(
+            name = "ISKCON Kathmandu (Budhanilkantha)",
+            description = "The main ISKCON center of Kathmandu, situated near the foothills of Shivapuri. The temple is dedicated to Lord Krishna and is known for daily kirtans, Bhagavad Gita classes, japa meditation, retreats, and the popular Sunday Love Feast in a peaceful ashram setting.",
+            categoryOptions = CategoryOptions.TEMPLES,
+            imageResourceId = R.drawable.iskcon_budhanilkantha,
+            locationName = "Budhanilkantha, Kathmandu",
+            entryFee = "Free",
+            tags = listOf("ISKCON", "Krishna", "Bhakti Yoga", "Kirtan", "Ashram")
+        ),
+        Recommendation(
+            name = "ISKCON Lalitpur (Patan)",
+            description = "An ISKCON preaching center serving devotees in Lalitpur. Hosts regular satsangs, kirtans, youth programs, and classes focused on Krishna consciousness and devotional living.",
+            categoryOptions = CategoryOptions.TEMPLES,
+            imageResourceId = R.drawable.iskcon_patan,
+            locationName = "Lalitpur (Patan)",
+            entryFee = "Free",
+            tags = listOf("ISKCON", "Krishna", "Satsang", "Bhagavad Gita")
+        ),
+        Recommendation(
+            name = "ISKCON Bhaktapur",
+            description = "A smaller ISKCON center serving the Bhaktapur area. Known for devotional gatherings, book distribution, and promoting bhakti culture within the historic city.",
+            categoryOptions = CategoryOptions.TEMPLES,
+            imageResourceId = R.drawable.iskcon_bhaktapur,
+            locationName = "Bhaktapur",
+            entryFee = "Free",
+            tags = listOf("ISKCON", "Devotion", "Kirtan", "Spiritual Learning")
+        ),
+        Recommendation(
+            name = "ISKCON Koteshwor",
+            description = "An ISKCON center based in Koteshwor area of Kathmandu. Having a building of its own hosting daily morning & evening aarati & a special programme every Saturday with Engaging Devotees and Youths.",
+            categoryOptions = CategoryOptions.TEMPLES,
+            imageResourceId = R.drawable.iskcon_koteshwor,
+            locationName = "Koteshwor, Kathmandu",
+            entryFee = "Free",
+            tags = listOf("ISKCON", "Krishna", "Kirtan", "Koteshwor")
+        ),
+
+        Recommendation(
             name = "Dakshinkali Temple",
             description = "A powerful temple dedicated to the ferocious goddess Kali. Located in a forest ravine south of the city, it is famous for animal sacrifices performed on Tuesdays and Saturdays to appease the deity.",
             categoryOptions = CategoryOptions.TEMPLES,
