@@ -48,6 +48,8 @@ com.example.kathmandu
 │   └── [Screens]       # Feature-specific Composables (Start, Categories, Options)
 └── MainActivity.kt     # App entry point
 
+```
+
 ## 🎨 Design Highlights
 
 - Custom Material 3 color scheme reflecting Kathmandu's cultural aesthetics
